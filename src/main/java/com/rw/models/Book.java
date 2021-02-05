@@ -32,7 +32,7 @@ public class Book {
     @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
     Set<Buyer> buyers = new HashSet<>();
 
-    public Book() {    }
+    public Book() {}
 
     public Book(String name, String author, String your, String style, int amountPages, String description, Owner owner, Set<Buyer> buyers) {
         this.name = name;

@@ -67,23 +67,30 @@
             </td>
         </tr>
 
-        <tr th:each="buyer:${getBook.buyers}">
-            <td>Buyer's name</td>
-            <td>
-                <input type="text" th:field="*{buyer.name}"/>
-            </td>
-        </tr>
 
-<!--        <tr>-->
-<!--            <td>Buyer's name choice</td>-->
-<!--            <td><select id="buyer_id" name="buyer_id">-->
-<!--                <option th:each="buyer:${buyers}"-->
-<!--                        th:value="${buyer.id}"-->
-<!--                        th:text="${buyer.name}"> Option-->
-<!--                </option>-->
-<!--            </select>-->
-<!--            </td>-->
-<!--        </tr>-->
+            <tr th:each="buyer, stat: *{buyers}"><!--${getBook.buyers}-->
+                <td>Buyer's name</td>
+                <td th:text="${buyer.name}"></td>
+                <td><a th:href="@{/remove(book_id = ${getBook.id}, buyer_id = ${buyer.id})}">Delete</a></td>
+                <!--<td><input type="text" th:field="*{buyers[__${stat.index}__].name}"/></td>-->
+                <!-- <td><input th:text="${buyer.name}"/></td>-->
+            </tr>
+
+
+        <!--        <div th: each = "p: * {person}">-->
+        <!--            <input th: field = "* {person [__ $ {pStat.index} __]. name}" />-->
+        <!--        </div>-->
+
+        <!--        <tr>-->
+        <!--            <td>Buyer's name choice</td>-->
+        <!--            <td><select id="buyer_id" name="buyer_id">-->
+        <!--                <option th:each="buyer:${buyers}"-->
+        <!--                        th:value="${buyer.id}"-->
+        <!--                        th:text="${buyer.name}"> Option-->
+        <!--                </option>-->
+        <!--            </select>-->
+        <!--            </td>-->
+        <!--        </tr>-->
 
 
         <!--    <tr>-->
